@@ -27,4 +27,43 @@
       box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.3); /* Effet de focus avec une ombre rose */
     }
   }
+
+  // style for input field dans button form
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  // style for button form
+  #btnSubmit {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #e91e63; /* Rose pastel moyen */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      background-color: #d81b60; /* Rose pastel plus foncé */
+      transform: scale(1.05);
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.3); /* Effet de focus avec une ombre rose */
+    }
+
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  }
+
 }

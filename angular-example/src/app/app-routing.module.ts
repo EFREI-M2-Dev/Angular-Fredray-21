@@ -12,7 +12,8 @@ const routes: Routes = [
   {
     path:"quiz",
     component: QuizComponent
-  },
+  }
+  ,
   {
     path:"quiz/score",
     component: ScoreQuizComponent

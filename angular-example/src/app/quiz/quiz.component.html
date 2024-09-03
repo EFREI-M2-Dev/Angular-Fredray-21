@@ -1,5 +1,5 @@
 <section class="quiz-container">
-
+  <h1 *ngIf="currentUsername !== null" >Bonjour {{ currentUsername | titlecase }}</h1>
   <div class="question" *ngFor="let q of questions; let i = index">
     <app-question
       [question]="q"

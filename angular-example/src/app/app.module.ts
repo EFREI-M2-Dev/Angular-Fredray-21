@@ -9,6 +9,7 @@ import { QuizComponent } from './quiz/quiz.component';
 import { ScoreQuizComponent } from './score-quiz/score-quiz.component';
 import { HttpClientModule } from '@angular/common/http';
 import { QuestionComponent } from './question/question.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,9 @@ import { QuestionComponent } from './question/question.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

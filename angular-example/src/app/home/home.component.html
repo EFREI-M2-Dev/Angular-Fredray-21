@@ -1,5 +1,13 @@
 <section id="homePage">
     <h1>Fredray Quiz</h1>
     <p>Welcome to the home page!</p>
-    <a routerLink="/quiz">Take the quiz</a>
+
+  <form [formGroup]="homeForm" (submit)="onSubmit()">
+    <input formControlName="username" placeholder="Username" type="text" id="username" name="username" required>
+    <button
+      id="btnSubmit"
+      type="submit"
+      [disabled]="isUsernameEmpty()"
+    >Submit</button>
+  </form>
 </section>

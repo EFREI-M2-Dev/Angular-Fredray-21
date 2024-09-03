@@ -30,6 +30,7 @@ export class QuizService {
   userAnswers: { [id: number]: string } = {};
   score = 0;
   msgError : string | null = null;
+  currentUsername: string | null = null;
 
   shuffleArray = (array: any[]) => array.sort(() => Math.random() - 0.5);
 

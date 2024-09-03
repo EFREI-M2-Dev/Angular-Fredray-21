@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Question, QuizService} from "../quiz.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-quiz',
@@ -7,7 +8,7 @@ import {Question, QuizService} from "../quiz.service";
   styleUrls: ['./quiz.component.scss']
 })
 export class QuizComponent {
-  constructor(private quizService: QuizService) {}
+  constructor(private quizService: QuizService,private route: ActivatedRoute) {}
 
   selectAnswer(question: Question, choice: string) {
     this.quizService.selectAnswer(question, choice);
@@ -27,6 +28,10 @@ export class QuizComponent {
 
   get questions() {
     return this.quizService.questions;
+  }
+
+  get currentUsername() {
+    return this.quizService.currentUsername;
   }
 
 }
