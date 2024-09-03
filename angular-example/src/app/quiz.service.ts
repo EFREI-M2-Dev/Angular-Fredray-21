@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import {Router} from "@angular/router";
+import { HttpClient } from '@angular/common/http';
+import {Observable } from 'rxjs';
 
-export interface Question {
+
+export interface  Question {
   id: number;
   question: string;
   choices: string[];
@@ -13,75 +16,26 @@ export interface Question {
   providedIn: 'root'
 })
 export class QuizService {
-  constructor(private router: Router) { }
 
-  shuffleArray = (array: any[]) => array.sort(() => Math.random() - 0.5);
+  constructor(private router: Router, private http: HttpClient) {
+    this.getQuestions().subscribe((data: Question[]) => {
+      this.questions = this.shuffleArray(data);
+      this.questions.forEach((question) => {
+        question.choices = this.shuffleArray(question.choices);
+      });
+    });
+  }
 
-  questions: Question[] = [
-    {
-      id: 1,
-      question: 'Quel girl band a sorti la chanson "DDU-DU DDU-DU" ?',
-      choices: ['BLACKPINK', 'TWICE', 'Red Velvet', 'ITZY'],
-      answer: 'BLACKPINK'
-    },
-    {
-      id: 2,
-      question: 'Quel groupe féminin a fait ses débuts avec la chanson "BOOMBAYAH" ?',
-      choices: ['BLACKPINK', 'MAMAMOO', 'ITZY', 'GFRIEND'],
-      answer: 'BLACKPINK'
-    },
-    {
-      id: 3,
-      question: 'Quelle chanson a permis à TWICE de remporter leur premier "Daesang" (grand prix) ?',
-      choices: ['Cheer Up', 'TT', 'Likey', 'Signal'],
-      answer: 'Cheer Up'
-    },
-    {
-      id: 4,
-      question: 'Quel groupe féminin est surnommé "les Monster Rookies" après leur succès fulgurant en 2019 ?',
-      choices: ['ITZY', 'EVERGLOW', 'aespa', 'IZ*ONE'],
-      answer: 'ITZY'
-    },
-    {
-      id: 5,
-      question: 'Quelle membre de BLACKPINK a sorti un album solo intitulé "R" ?',
-      choices: ['Rosé', 'Jennie', 'Lisa', 'Jisoo'],
-      answer: 'Rosé'
-    },
-    {
-      id: 6,
-      question: 'Quel groupe féminin est connu pour son concept de contes de fées et de rêves ?',
-      choices: ['LOONA', 'GFRIEND', 'Red Velvet', 'Dreamcatcher'],
-      answer: 'Red Velvet'
-    },
-    {
-      id: 7,
-      question: 'Quel groupe féminin a collaboré avec Selena Gomez sur la chanson "Ice Cream" ?',
-      choices: ['BLACKPINK', 'Red Velvet', 'TWICE', 'ITZY'],
-      answer: 'BLACKPINK'
-    },
-    {
-      id: 8,
-      question: 'Quel groupe féminin est célèbre pour ses concepts variés, de "Red Flavor" à "Psycho" ?',
-      choices: ['Red Velvet', 'Apink', 'MAMAMOO', '(G)I-DLE'],
-      answer: 'Red Velvet'
-    },
-    {
-      id: 9,
-      question: 'Quel girl band a remporté "Queendom" avec sa performance spectaculaire ?',
-      choices: ['MAMAMOO', '(G)I-DLE', 'AOA', 'Lovelyz'],
-      answer: 'MAMAMOO'
-    },
-    {
-      id: 10,
-      question: 'Quel groupe féminin a été formé à partir de l\'émission de télé-réalité "Produce 48" ?',
-      choices: ['IZ*ONE', 'fromis_9', 'WJSN', 'Cherry Bullet'],
-      answer: 'IZ*ONE'
-    }
-  ];
+  questions : Question[] = [];
   userAnswers: { [id: number]: string } = {};
   score = 0;
   msgError : string | null = null;
+
+  shuffleArray = (array: any[]) => array.sort(() => Math.random() - 0.5);
+
+  getQuestions = (): Observable<Question[]> => {
+    return this.http.get<Question[]>('http://localhost:3000/questions');
+  }
 
   selectAnswer =(question: Question, choice: string) =>{
     this.userAnswers[question.id] = choice;

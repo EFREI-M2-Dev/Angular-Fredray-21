@@ -1,0 +1,47 @@
+h2 {
+  font-size: 20px;
+  color: #e91e63; /* Rose pastel moyen */
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+
+  li {
+    margin-bottom: 10px;
+
+    button {
+      width: 100%;
+      padding: 10px 15px;
+      font-size: 16px;
+      color: #000;
+      background-color: #f4c6d7; /* Rose pastel moyen */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+
+      &:hover {
+        background-color: #d81b60; /* Rose pastel plus foncé */
+        transform: scale(1.05);
+        color: #fff;
+      }
+
+      &.active {
+        background-color: #e91e63; /* Rose pastel moyen */
+        color: #fff;
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.3); /* Effet de focus avec une ombre rose */
+      }
+
+      &:active {
+        background-color: #c2185b; /* Rose pastel encore plus foncé pour l'effet actif */
+        transform: scale(1);
+      }
+    }
+  }
+}

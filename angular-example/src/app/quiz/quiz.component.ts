@@ -9,15 +9,6 @@ import {Question, QuizService} from "../quiz.service";
 export class QuizComponent {
   constructor(private quizService: QuizService) {}
 
-  questions : Question[] = [];
-
-  ngOnInit() {
-    this.questions = this.quizService.shuffleArray(this.quizService.questions);
-    this.questions.forEach((question) => {
-      question.choices = this.quizService.shuffleArray(question.choices);
-    });
-  }
-
   selectAnswer(question: Question, choice: string) {
     this.quizService.selectAnswer(question, choice);
   }
@@ -33,6 +24,11 @@ export class QuizComponent {
   get msgUserAnswers() {
     return this.quizService.userAnswers;
   }
+
+  get questions() {
+    return this.quizService.questions;
+  }
+
 }
 
 
