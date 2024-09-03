@@ -8,4 +8,33 @@
   align-items: center;
   height: 75px;
   width: 100%;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  button {
+    background-color: #fff;
+    color: #e91e63;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #e91e63;
+      color: #fff;
+      border: 1px solid #fff;
+    }
+  }
+
+  .auth {
+    display: flex;
+    gap: 1em;
+  }
 }

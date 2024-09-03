@@ -31,7 +31,7 @@ export class QuizComponent {
   }
 
   get currentUsername() {
-    return this.quizService.currentUsername;
+    return this.quizService.currentUser?.username;
   }
 
 }

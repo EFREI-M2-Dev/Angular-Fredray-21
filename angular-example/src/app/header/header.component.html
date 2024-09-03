@@ -1,7 +1,12 @@
 <section id="header">
-  <p>Elem1</p>
-  <p>Elem2</p>
-  <p>Elem3</p>
-  <p>Elem4</p>
-  <p>Elem5</p>
+  <a routerLink="/">Home</a>
+
+  <div class="auth" >
+    <div *ngIf="!checkIfLoggedIn()" >
+      <a routerLink="/login">Login</a>
+      /
+      <a routerLink="/register">Register</a>
+    </div>
+    <button (click)="logout()"  *ngIf="checkIfLoggedIn()">Disconnect ({{currentUser?.username | titlecase}})</button>
+  </div>
 </section>

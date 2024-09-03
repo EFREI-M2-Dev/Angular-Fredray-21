@@ -10,6 +10,8 @@ import { ScoreQuizComponent } from './score-quiz/score-quiz.component';
 import { HttpClientModule } from '@angular/common/http';
 import { QuestionComponent } from './question/question.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { AuthRegisterComponent } from './auth-register/auth-register.component';
+import { AuthLoginComponent } from './auth-login/auth-login.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     QuizComponent,
     ScoreQuizComponent,
     QuestionComponent,
+    AuthRegisterComponent,
+    AuthLoginComponent,
   ],
   imports: [
     BrowserModule,

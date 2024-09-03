@@ -1,0 +1,13 @@
+<section id="register">
+  <form [formGroup]="registerForm" (submit)="onSubmit()">
+    <h2>Register</h2>
+    <input formControlName="username" placeholder="Username" type="text" id="username" name="username" required   >
+    <input formControlName="password" placeholder="Password" type="password" id="password" name="password" required>
+    <button
+      id="btnSubmit"
+      type="submit"
+      [disabled]="!registerForm.valid"
+    >Submit
+    </button>
+  </form>
+</section>

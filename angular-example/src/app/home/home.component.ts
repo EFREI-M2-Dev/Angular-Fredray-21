@@ -11,6 +11,12 @@ import { FormControl, FormGroup } from "@angular/forms";
 export class HomeComponent {
   constructor(private router: Router, private quizService: QuizService) {}
 
+  async ngOnInit() {
+    if (this.checkIfLoggedIn()) {
+      await this.router.navigate(['/quiz']);
+    }
+  }
+
   homeForm = new FormGroup({
     username: new FormControl('')
   });
@@ -26,7 +32,11 @@ export class HomeComponent {
     }
 
     const username = this.homeForm.get('username')?.value!;
-    this.quizService.currentUsername = username;
+    this.quizService.currentUser = { username };
     await this.router.navigate(['/quiz']);
+  }
+
+  checkIfLoggedIn() {
+    return this.quizService.currentUser !== null;
   }
 }
