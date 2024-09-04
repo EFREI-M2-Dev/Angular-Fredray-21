@@ -31,6 +31,7 @@ export class QuizService {
   score = 0;
   msgError : string | null = null;
   currentUser: { username: string } | null = JSON.parse(window.localStorage.getItem('user') || 'null');
+  dateStartQuiz : Date | null = null;
 
   shuffleArray = (array: any[]) => array.sort(() => Math.random() - 0.5);
 

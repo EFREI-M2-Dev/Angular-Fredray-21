@@ -13,7 +13,10 @@ export class QuestionComponent {
 
   @Output() selectAnswerEvent = new EventEmitter<string>();
 
+  now : Date |null = null;
+
   selectAnswer(choice: string) {
     this.selectAnswerEvent.emit(choice);
+    this.now = new Date();
   }
 }

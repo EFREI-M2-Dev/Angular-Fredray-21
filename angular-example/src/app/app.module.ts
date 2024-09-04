@@ -12,6 +12,7 @@ import { QuestionComponent } from './question/question.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { AuthRegisterComponent } from './auth-register/auth-register.component';
 import { AuthLoginComponent } from './auth-login/auth-login.component';
+import { DateAnswerPipe } from './date-answer.pipe';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AuthLoginComponent } from './auth-login/auth-login.component';
     QuestionComponent,
     AuthRegisterComponent,
     AuthLoginComponent,
+    DateAnswerPipe,
   ],
   imports: [
     BrowserModule,

@@ -33,6 +33,7 @@ export class HomeComponent {
 
     const username = this.homeForm.get('username')?.value!;
     this.quizService.currentUser = { username };
+    this.quizService.dateStartQuiz = new Date();
     await this.router.navigate(['/quiz']);
   }
 
