@@ -14,6 +14,7 @@ import { AuthRegisterComponent } from './auth-register/auth-register.component';
 import { AuthLoginComponent } from './auth-login/auth-login.component';
 import { DateAnswerPipe } from './date-answer.pipe';
 import { AnswerLettersDirective } from './answer-letters.directive';
+import { PopupComponent } from './popup/popup.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AnswerLettersDirective } from './answer-letters.directive';
     AuthLoginComponent,
     DateAnswerPipe,
     AnswerLettersDirective,
+    PopupComponent,
   ],
   imports: [
     BrowserModule,

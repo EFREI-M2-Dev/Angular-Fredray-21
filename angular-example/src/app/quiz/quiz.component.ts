@@ -15,6 +15,7 @@ export class QuizComponent {
   }
 
   get calculateScore() {
+    this.showResult = false;
     return this.quizService.calculateScore();
   }
 
@@ -33,6 +34,8 @@ export class QuizComponent {
   get currentUsername() {
     return this.quizService.currentUser?.username;
   }
+
+  showResult = false;
 
 }
 

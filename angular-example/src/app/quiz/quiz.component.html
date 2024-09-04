@@ -11,7 +11,7 @@
 
   <Button
     id="showResult"
-    (click)="calculateScore"
+    (click)="showResult = true"
   >
     Show Result
   </Button>
@@ -23,3 +23,11 @@
   </div>
 
 </section>
+
+<app-popup *ngIf="showResult" >
+  <p>Etes-vous sûr de vouloir soumettre vos réponses ?</p>
+  <div class="popup-buttons">
+    <button (click)="calculateScore">Oui</button>
+    <button class="popup-buttons-no" (click)="showResult = false">Non</button>
+  </div>
+</app-popup>
