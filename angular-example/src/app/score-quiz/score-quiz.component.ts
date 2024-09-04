@@ -29,4 +29,6 @@ export class ScoreQuizComponent {
   get questionLength() {
     return this.quizService.questions.length;
   }
+
+  now = new Date();
 }

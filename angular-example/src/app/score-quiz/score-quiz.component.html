@@ -2,5 +2,6 @@
     <h2>Résultat</h2>
     <p>Vous avez {{ score }} bonnes réponses sur {{ questionLength }} questions.</p>
     <p>Vous avez obtenu {{ score / questionLength * 100 }} %.</p>
+    <p>Formuaire fait le : {{ now | date: 'dd/MM/yyyy' }}</p>
     <a routerLink="/quiz" routerLinkActive="active" (click)="resetData" >Recommencer</a>
   </div>
