@@ -1,9 +1,10 @@
 <h2>Question {{ questionNumber }} : {{ question.question }}</h2>
 <ul>
-  <li *ngFor="let c of question.choices">
+  <li *ngFor="let c of question.choices; let idx = index">
     <button
       (click)="selectAnswer(c)"
       [ngClass]="{'active': msgUserAnswers[question.id] === c}"
+      [appAnswerLetters]="idx"
     >
       {{ c }}
     </button>

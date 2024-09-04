@@ -13,6 +13,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { AuthRegisterComponent } from './auth-register/auth-register.component';
 import { AuthLoginComponent } from './auth-login/auth-login.component';
 import { DateAnswerPipe } from './date-answer.pipe';
+import { AnswerLettersDirective } from './answer-letters.directive';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { DateAnswerPipe } from './date-answer.pipe';
     AuthRegisterComponent,
     AuthLoginComponent,
     DateAnswerPipe,
+    AnswerLettersDirective,
   ],
   imports: [
     BrowserModule,

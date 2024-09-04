@@ -21,6 +21,7 @@ ul {
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.2s ease;
+      text-align: start;
 
       &:hover {
         background-color: #d81b60; /* Rose pastel plus foncé */
@@ -42,6 +43,7 @@ ul {
         background-color: #c2185b; /* Rose pastel encore plus foncé pour l'effet actif */
         transform: scale(1);
       }
+
     }
   }
 }
