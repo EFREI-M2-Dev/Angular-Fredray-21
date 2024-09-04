@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 
@@ -19,9 +19,33 @@ export class AuthRegisterComponent {
     ]),
     password: new FormControl('', [
       Validators.required,
-      Validators.minLength(4)
+      Validators.minLength(4),
+      this.usernameIsNotInPasswordValidator
+    ]),
+    confirmPassword: new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+      this.passwordMatchValidator,
     ])
   });
+
+  passwordMatchValidator(control: AbstractControl) {
+    const password = control.parent?.get('password')?.value;
+    const confirmPassword = control.value;
+    if (password !== confirmPassword) {
+        return { passwordMismatch: "Passwords do not match" };
+    }
+    return null;
+  }
+
+  usernameIsNotInPasswordValidator(control: AbstractControl) {
+    const username = control.parent?.get('username')?.value;
+    const password = control.value;
+    if (password.includes(username)) {
+        return { usernameInPassword: "Password cannot contain username" };
+    }
+    return null;
+  }
 
   async onSubmit() {
     if (!this.registerForm.valid) {

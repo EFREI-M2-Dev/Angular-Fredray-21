@@ -3,11 +3,20 @@
     <h2>Register</h2>
     <input formControlName="username" placeholder="Username" type="text" id="username" name="username" required   >
     <input formControlName="password" placeholder="Password" type="password" id="password" name="password" required>
+    <input formControlName="confirmPassword" placeholder="Confirm Password" type="password" id="confirmPassword" name="confirmPassword" required>
+    <p class="errorMsg" *ngIf="registerForm.controls.confirmPassword.hasError('passwordMismatch')">
+      {{ registerForm.controls.confirmPassword.getError('passwordMismatch') }}
+    </p>
+    <p class="errorMsg" *ngIf="registerForm.controls.password.hasError('usernameInPassword')">
+      {{ registerForm.controls.password.getError('usernameInPassword') }}
+    </p>
+
     <button
       id="btnSubmit"
       type="submit"
       [disabled]="!registerForm.valid"
     >Submit
     </button>
+
   </form>
 </section>

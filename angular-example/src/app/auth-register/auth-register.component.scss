@@ -11,6 +11,12 @@ form {
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
+
+  p.errorMsg {
+    color: red;
+    font-size: 0.9em;
+    margin: 0;
+  }
 }
 
 #btnSubmit {
